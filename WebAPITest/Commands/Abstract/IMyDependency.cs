@@ -4,8 +4,6 @@ namespace WebAPITest.Commands.Abstract
 {
     public interface IMyDependency
     {
-        Task WriteUserRecordsAsync();
-
-        Task WriteReservetionRecordsAsync();
+        void WriteLog();
     }
 }

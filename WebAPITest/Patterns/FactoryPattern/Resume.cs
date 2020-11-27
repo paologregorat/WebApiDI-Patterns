@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestEFPostgres.Entities.FactoryPattern
+﻿namespace WebAPITest.Patterns.FactoryPattern
 {
-    class Resume : Document
+    public class Resume : Document
     {
         // Factory Method implementation
 

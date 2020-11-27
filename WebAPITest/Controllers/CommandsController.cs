@@ -9,6 +9,7 @@ using TestEFPostgres.Entities.BridgePattern;
 using WebAPITest.Commands.Abstract;
 using WebAPITest.Commands.Concrete;
 using WebAPITest.Patterns.AdapterPattern;
+using WebAPITest.Patterns.FactoryPattern;
 using WebAPITest.Patterns.Prototype;
 
 namespace WebAPITest.Controllers
@@ -52,6 +53,14 @@ namespace WebAPITest.Controllers
             Console.WriteLine();
             abstraction = new ExtendedAbstraction(new ConcreteImplementationB());
             client.ClientCode(abstraction);
+            return Ok();
+        }
+        
+        [HttpPost("FactoryPattern-CreatePages")]
+        public async Task<IActionResult> Createpages()
+        {
+            var doc = new Resume();
+            doc.CreatePages();
             return Ok();
         }
 

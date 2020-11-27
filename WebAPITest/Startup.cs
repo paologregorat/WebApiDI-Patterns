@@ -14,7 +14,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WebAPITest.Commands.Abstract;
 using WebAPITest.Commands.Concrete;
-using WebAPITest.Context;
 
 namespace WebAPITest
 {
@@ -38,17 +37,6 @@ namespace WebAPITest
             });
 
             services.AddScoped<IMyDependency, MyDependency>();
-            services.AddDbContext<ShenronContext>(options =>
-            {
-                options.UseLoggerFactory(LoggerFactory.Create(builder =>
-                {
-                    builder.AddFilter("Microsoft", LogLevel.Warning)
-                        .AddFilter("System", LogLevel.Warning)
-                        .AddFilter("SampleApp.Program", LogLevel.Debug)
-                        .AddConsole();
-                }));
-                options.UseNpgsql(Configuration.GetConnectionString("Shenron"), npgsqlOptions => npgsqlOptions.UseNodaTime());
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
