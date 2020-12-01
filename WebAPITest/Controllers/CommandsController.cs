@@ -77,7 +77,7 @@ namespace WebAPITest.Controllers
         public async Task<IActionResult> Sort()
         {
             var collection = new Collection(new int[]{ 1, 7, 6, 5, 4, 3, 2 });
-            collection.setSortStrategy(new BubbleSortStrategy());
+            collection.SetSortStrategy(new BubbleSortStrategy());
             collection.sort();
             Console.WriteLine(collection);
             return Ok();

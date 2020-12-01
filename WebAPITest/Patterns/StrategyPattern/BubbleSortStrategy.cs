@@ -1,8 +1,8 @@
 namespace WebAPITest.Patterns.StrategyPattern
 {
-    public class BubbleSortStrategy : SortStrategy
+    public class BubbleSortStrategy : ISortStrategy
     {
-        public void sort(ref int[] elements) {
+        public void Sort(ref int[] elements) {
             var size = elements.Length;
             bool swapped;
             do {

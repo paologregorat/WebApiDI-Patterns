@@ -6,21 +6,21 @@ namespace WebAPITest.Patterns.StrategyPattern
     public class Collection
     {
         protected int[] elements;
-        protected SortStrategy sortStrategy;
+        protected ISortStrategy sortStrategy;
 
         public Collection(int[] elements) {
             this.elements = elements;
             this.sortStrategy = null;
         }
 
-        public void setSortStrategy(SortStrategy sortStrategy) {
+        public void SetSortStrategy(ISortStrategy sortStrategy) {
             this.sortStrategy = sortStrategy;
         }
 
         public void sort()
         {
             if (this.sortStrategy != null) {
-                this.sortStrategy.sort(ref this.elements);
+                this.sortStrategy.Sort(ref this.elements);
             }
         }
 

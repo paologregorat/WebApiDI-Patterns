@@ -1,7 +1,7 @@
 namespace WebAPITest.Patterns.StrategyPattern
 {
-    public interface SortStrategy
+    public interface ISortStrategy
     {
-        void sort(ref int[] elements);
+        void Sort(ref int[] elements);
     }
 }
