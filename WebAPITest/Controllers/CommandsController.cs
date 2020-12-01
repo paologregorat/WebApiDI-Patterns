@@ -11,6 +11,7 @@ using WebAPITest.Commands.Concrete;
 using WebAPITest.Patterns.AdapterPattern;
 using WebAPITest.Patterns.FactoryPattern;
 using WebAPITest.Patterns.Prototype;
+using WebAPITest.Patterns.StrategyPattern;
 
 namespace WebAPITest.Controllers
 {
@@ -61,6 +62,24 @@ namespace WebAPITest.Controllers
         {
             var doc = new Resume();
             doc.CreatePages();
+            return Ok();
+        }
+        
+        [HttpPost("AdapterPattern-MakeRequest")]
+        public async Task<IActionResult> MakeRequest()
+        {
+            var client = new AClient(new Adapter());
+            client.MakeRequest();
+            return Ok();
+        }
+        
+        [HttpPost("StrategyPattern-Sort")]
+        public async Task<IActionResult> Sort()
+        {
+            var collection = new Collection(new int[]{ 1, 7, 6, 5, 4, 3, 2 });
+            collection.setSortStrategy(new BubbleSortStrategy());
+            collection.sort();
+            Console.WriteLine(collection);
             return Ok();
         }
 
