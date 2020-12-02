@@ -11,6 +11,7 @@ using WebAPITest.Commands.Concrete;
 using WebAPITest.Patterns.AdapterPattern;
 using WebAPITest.Patterns.FactoryPattern;
 using WebAPITest.Patterns.Prototype;
+using WebAPITest.Patterns.SingletonPattern;
 using WebAPITest.Patterns.StrategyPattern;
 
 namespace WebAPITest.Controllers
@@ -80,6 +81,13 @@ namespace WebAPITest.Controllers
             collection.SetSortStrategy(new BubbleSortStrategy());
             collection.sort();
             Console.WriteLine(collection);
+            return Ok();
+        }
+        
+        [HttpPost("Singleton-GetInstance")]
+        public async Task<IActionResult> GetInstance()
+        {
+            var instance = PrinterSpooler.GetInstance();
             return Ok();
         }
 
