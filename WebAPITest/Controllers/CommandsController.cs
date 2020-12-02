@@ -84,7 +84,7 @@ namespace WebAPITest.Controllers
             return Ok();
         }
         
-        [HttpPost("Singleton-GetInstance")]
+        [HttpPost("SingletonPattern-GetInstance")]
         public async Task<IActionResult> GetInstance()
         {
             var instance = PrinterSpooler.GetInstance();
